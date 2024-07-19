@@ -1,6 +1,8 @@
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.androidApplication)
+    alias(libs.plugins.jetbrainsKotlin)
+    alias(libs.plugins.hilt)
+    kotlin("kapt")
 }
 
 android {
@@ -59,11 +61,49 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
-    testImplementation(libs.junit)
+    implementation(libs.materialIcon)
+    implementation(libs.materialIconExt)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    // Unit tests
+    testImplementation(libs.junit)
+    testImplementation (libs.mockk)
+    testImplementation (libs.coroutineTest)
+    testImplementation (libs.turbineTest)
+
+    // UI Tests
+    androidTestImplementation(libs.testRunner)
+    androidTestImplementation(libs.hiltAndroidTesting)
+
+    // accessibility checks
+    androidTestImplementation(libs.accessablityTest)
+
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
+    kapt(libs.hilt.android.compiler)
+    implementation(libs.hilt.navigation.compose)
+
+    implementation(libs.serialization)
+    implementation(libs.retrofit)
+    implementation(libs.okhttp)
+    implementation(libs.moshi)
+    implementation(libs.moshiConverter)
+    implementation(libs.gsonConverter)
+    implementation(libs.loggingInterceptor)
+
+    implementation(libs.coroutineCore)
+    implementation(libs.coroutinesAndroid)
+
+    implementation(libs.splash)
+
+    implementation(libs.coil)
+
+}
+kapt {
+    correctErrorTypes = true
 }
