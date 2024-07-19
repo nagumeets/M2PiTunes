@@ -2,9 +2,9 @@ package com.m2pitunes.data.services
 
 import app.cash.turbine.test
 import com.m2pitunes.data.TestDatasource
-import com.example.knockoffspotify.data.remote.TopAlbumsApiService
-import com.example.knockoffspotify.model.TopAlbums
-import com.example.knockoffspotify.utils.ViewState
+import com.m2pitunes.data.remote.TopAlbumsApiService
+import com.m2pitunes.model.TopAlbums
+import com.m2pitunes.utils.ViewState
 import io.mockk.coEvery
 import io.mockk.mockk
 import kotlinx.coroutines.test.runTest
